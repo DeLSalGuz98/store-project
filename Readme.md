@@ -1,7 +1,6 @@
 # Tienda
 
-## Descripcion - Description Project
-**Español:**
+## Descripción
 * La aplicacion de tienda permitira que un usuario se **registre**, para ello se solicitara su (*nombre, apellido, sexo, nombre de usuario, pais, ciudad, direccion, contraseña*).
 * Una vez se registre, se le creara un perfil donde podra visualizar las siguientes opciones **ver productos**,**crear tienda**, en caso de tener una tienda ya creada se mostrara la opcion de **ver mis tiendas**, **agregar foto de perfil**, **carrito de compras**, **cerrar sesión**
   * La opcion **ver productos**, llevara al usuario a una pantalla donde se visualizaran todos los productos que se estan vendiendo; se visualizara: *1 ó + imagenes del producto, nombre del producto, nombre de la tienda, y el precio en dolares, y un boton de más detalles*.
@@ -13,4 +12,41 @@
   * **ver lista de prodcutos** esta sera la opcion por defecto, mostrara un panel con todos los prodcutos creados con dos opcion es **editar o eliminar**
   * **ventas pendientes de envio** en esta opcion el usuario podra ver los pedidos de otros usuarios que ya haigan realizado el pago,  se visualizara los siguientes datos *(nombre del usuario, direccion, pais, nombre del producto, cantidad, imagen del producto)* 
   * **productos vendidos** en aqui se mostrara una lista de los productos que ya fueron enviados y el total del monto de dinero recaudado por las ventas.
-* 
+
+## Diseño en Figma
+![diseño figma](./readme-img/dise%C3%B1o-figma.png)
+
+## Tareas
+### Data Base
+* diseño conceptual
+* diseño logico
+* disño conceptual
+* definir consultas
+### Backend
+* levantar el servidor
+* crear rutas POST para almacenar datos
+* crear rutas GET
+* crear rutas UPDATE
+* crear Rutas DELETE
+* crear ruta de registro de usuario
+* crear autenticacion de usuario
+### Frontend
+* crear header
+* crear menu
+* crear tienda
+* crear producto nuevo
+* visualizar todos los productos creados
+* editar producto
+* borrar producto 
+* ver todos los productos que se venden
+* ver detalles del producto
+* agregar al carrito de compra
+* ver carrito de compra
+* comprar producto
+* enviar producto
+* visualizar ventas
+* registrar usuario nuevo
+* autenticar usuario
+* cerrar sesion
+* proteger rutas
+* editar datos del usaurio
