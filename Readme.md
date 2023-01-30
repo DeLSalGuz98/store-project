@@ -18,35 +18,65 @@
 
 ## Tareas
 ### Data Base
-* diseño conceptual
-* diseño logico
-* disño conceptual
-* definir consultas
+* [x] diseño conceptual
+  ![diseño conceptual](./readme-img/store-DC.jpg)
+* [x] diseño logico
+  ![diseño logico](./readme-img/store-DL.jpg)
+* [x] diseño fisico
+* [x] definir consultas
+  
+  ---USUARIO---
+  * [x] crear usaurio
+  * [x] obtener los datos del usuario solo con su user_name
+  * [x] mostrar los datos del usuario especifico
+  * [x] editar los datos de usuario (nombre, apellido, sexo, username, contraseña, pais, cuidad, direccion, foto)
+  
+  ---CLIENTE---
+  * [x] obtener todos los productos de las tiendas(nombre, imagen, precio, tienda)
+  * [x] obtener informacion de un solo producto (foto, nombre, descripcion, tienda, precio, stock)
+  * [x] agregar producto al carrito de compras 
+  * [x] mostrar productos agregados al carrito de compra de un usuario especifico(foto, producto, cantidad)
+  * [x] comprar producto(fecha, status, tienda), generar factura
+  
+  ---VENDEDOR---
+  * [x] crear tienda
+  * [x] crear producto (nombre, precio, descripcion, imagen)
+  * [x] mostrar los productos creados(nombre, precio, foto)
+  * [x] editar productos (nombre, precio, descripcion, imagen)
+  * [x] mostrar las tiendas que pertenecen a un usuario especifico(nombre, fecha)
+  * [x] mostrar las compras pendientes de envio de una teinda en especifico(foto, cliente, pais, ciudad, direccion, fecha, producto, cantidad)
+  * [x] enviar producto al cliente
+  * [x] mostrar todos los productos vendidos, es decir, que ya haigan sido enviados(nombre fecha monto total).
+  * [x] obtener la suma de todos los precios del ultimo mes
 ### Backend
-* levantar el servidor
-* crear rutas POST para almacenar datos
-* crear rutas GET
-* crear rutas UPDATE
-* crear Rutas DELETE
-* crear ruta de registro de usuario
-* crear autenticacion de usuario
+* [ ] levantar el servidor
+* [ ] crear rutas POST para almacenar datos
+* [ ] crear rutas GET
+* [ ] crear rutas UPDATE
+* [ ] crear Rutas DELETE
+* [ ] crear ruta de registro de usuario
+* [ ] crear autenticacion de usuario
 ### Frontend
-* crear header
-* crear menu
-* crear tienda
-* crear producto nuevo
-* visualizar todos los productos creados
-* editar producto
-* borrar producto 
-* ver todos los productos que se venden
-* ver detalles del producto
-* agregar al carrito de compra
-* ver carrito de compra
-* comprar producto
-* enviar producto
-* visualizar ventas
-* registrar usuario nuevo
-* autenticar usuario
-* cerrar sesion
-* proteger rutas
-* editar datos del usaurio
+* [ ] crear header
+* [ ] crear menu
+* [ ] crear tienda
+* [ ] crear producto nuevo
+* [ ] visualizar todos los productos creados
+* [ ] editar producto
+* [ ] borrar producto 
+* [ ] ver todos los productos que se venden
+* [ ] ver detalles del producto
+* [ ] agregar al carrito de compra
+* [ ] ver carrito de compra
+* [ ] comprar producto
+* [ ] enviar producto
+* [ ] visualizar ventas
+* [ ] registrar usuario nuevo
+* [ ] autenticar usuario
+* [ ] cerrar sesion
+* [ ] proteger rutas
+* [ ] editar datos del usaurio
+
+## Descripcion de la base de datos
+Se debe crear una base de datos donde los usuarios podran ser registrados, para ello debemos saber su **(nombre, apellido, sexo, nombre de usuario, pais, ciudad, direccion y contraseña)**, cada usuario podra crear una o más tiendas, de cada tienda queremos saber su **(nombre, tipo de articulos que vende, fecha de creacion)**, cada usaurio podra agregar un varios productos a su tienda, cada producto pertenecera a una tienda en particular, lo que nos intereza de los productos es saber su **(nombre, una descripcion, el precio, la fecha de creacion, el stock, y minimo una imagen del producto)**.
+Tambien cada usaurio podra visualizar los productos que venden otros usuarios, y agregarlos a su carrito de compras aqui nos interesa visualizar su **(nombre del producto, nombre de la tienda, el precio, estado de la compra "agregado, comprado" )**, cada producto puede ser pagado indicidualmente; los usuarios recibiran notificaciones de los pedidos, es decir si otro usuario ha realizado la compra, el vendedor debe poder visualizar su **(nombre, direccion ,estado "pendiente, enviado")**.   
