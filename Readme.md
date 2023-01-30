@@ -49,7 +49,8 @@
   * [x] mostrar todos los productos vendidos, es decir, que ya haigan sido enviados(nombre fecha monto total).
   * [x] obtener la suma de todos los precios del ultimo mes
 ### Backend
-* [ ] levantar el servidor
+* [x] levantar el servidor
+* [ ] conectar con la base de datos
 * [ ] crear rutas POST para almacenar datos
 * [ ] crear rutas GET
 * [ ] crear rutas UPDATE
