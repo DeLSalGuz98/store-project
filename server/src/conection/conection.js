@@ -9,7 +9,7 @@ const creadentials = {
     waitForConnections: true,
     port: 3306
 }
-const conn = async ()=>{
+const conection = async ()=>{
     try {
         const pool = await  mysql.createPool(creadentials);
         return pool
@@ -20,4 +20,4 @@ const conn = async ()=>{
     }
 }
 
-conn();
+module.exports = conection;

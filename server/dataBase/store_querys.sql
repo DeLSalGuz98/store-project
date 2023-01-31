@@ -54,7 +54,7 @@ select product.id as id_product
 from product 
 join store on store.id = product.id_store
 where product.id = "5";
--- make oreder
+-- make order
 INSERT INTO order_buy(quantity, unit_price, status, id_user, id_product) VALUES
 ("2","85.20", "sin-comprar","1","5");
 
@@ -70,7 +70,7 @@ select product.id as product_id
     , product.id_store
 from order_buy
 join product on product.id = order_buy.id_product
-where id_user = "1" and order_buy.status = "sin-comprar";
+where id_user = "2" and order_buy.status = "sin-comprar";
 
 -- generate invoice, and reduce the product stock
 START TRANSACTION;
