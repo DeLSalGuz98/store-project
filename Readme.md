@@ -29,33 +29,34 @@
   * [x] crear usaurio
   * [x] obtener los datos del usuario solo con su user_name
   * [ ] mostrar los datos del usuario especifico
-  * [ ] editar los datos de usuario (nombre, apellido, sexo, username, contraseña, pais, cuidad, direccion, foto)
+  * [x] editar los datos de usuario (nombre, apellido, sexo, username, contraseña, pais, cuidad, direccion, foto)
   
   ---CLIENTE---
-  * [ ] obtener todos los productos de las tiendas(nombre, imagen, precio, tienda)
-  * [ ] obtener informacion de un solo producto (foto, nombre, descripcion, tienda, precio, stock)
+  * [x] obtener todos los productos de las tiendas(nombre, imagen, precio, tienda)
+  * [x] obtener informacion de un solo producto (foto, nombre, descripcion, tienda, precio, stock)
   * [x] agregar producto al carrito de compras 
-  * [ ] mostrar productos agregados al carrito de compra de un usuario especifico(foto, producto, cantidad)
+  * [x] mostrar productos agregados al carrito de compra de un usuario especifico(foto, producto, cantidad)
   * [x] comprar producto(fecha, status, tienda), generar factura
   
   ---VENDEDOR---
   * [x] crear tienda
   * [x] crear producto (nombre, precio, descripcion, imagen)
-  * [ ] mostrar los productos creados(nombre, precio, foto)
-  * [ ] editar productos (nombre, precio, descripcion, imagen)
-  * [ ] mostrar las tiendas que pertenecen a un usuario especifico(nombre, fecha)
-  * [ ] mostrar las compras pendientes de envio de una teinda en especifico(foto, cliente, pais, ciudad, direccion, fecha, producto, cantidad)
-  * [ ] enviar producto al cliente
-  * [ ] mostrar todos los productos vendidos, es decir, que ya haigan sido enviados(nombre fecha monto total).
-  * [ ] obtener la suma de todos los precios del ultimo mes
+  * [x] mostrar los productos creados(nombre, precio, foto)
+  * [x] editar productos (nombre, precio, descripcion, imagen)
+  * [x] mostrar las tiendas que pertenecen a un usuario especifico(nombre, fecha)
+  * [x] mostrar las compras pendientes de envio de una teinda en especifico(foto, cliente, pais, ciudad, direccion, fecha, producto, cantidad)
+  * [x] enviar producto al cliente
+  * [x] mostrar todos los productos vendidos, es decir, que ya haigan sido enviados(nombre fecha monto total).
+  * [x] obtener la suma de todos los precios del ultimo mes
 ### Backend
 * [x] levantar el servidor
 * [x] conectar con la base de datos
 * [x] crear rutas POST para almacenar datos
-* [ ] crear rutas GET
-* [ ] crear rutas UPDATE
+* [x] crear rutas GET
+* [x] crear rutas UPDATE
 * [ ] crear Rutas DELETE
-* [ ] crear ruta de registro de usuario
+* [x] crear ruta de registro de usuario
+* [ ] encriptar contraseña
 * [ ] crear autenticacion de usuario
 ### Frontend
 * [ ] crear header

@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const bcrypt = require('bcryptjs');
 
 const conection = require('../conection/conection.js');
 let db;
@@ -31,9 +32,10 @@ router.use(async function(req, res, next) {
 router.post('/new-user', async(req, res)=>{
     try {
         const {name, lastname, sex, user_name, password, country, city, address, photo} = req.body;
+        const hash = bcrypt.hashSync(password, 5);
         const [row] = await db.query(`
             INSERT INTO user(name, lastname, sex, user_name, password, country, city, address, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);`, 
-            [name, lastname, sex, user_name, password, country, city, address, photo]);
+            [name, lastname, sex, user_name, hash, country, city, address, photo]);
         res.status(201).json(row);
     } catch (error) {
         console.log(error)

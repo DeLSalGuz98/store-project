@@ -136,16 +136,19 @@ router.get('/sold-products/:id', async(req, res)=>{
     res.status(200).json(row) 
 });
 //get total money //*falta implementar
-router.get('/total/month=:month&&year=:year', async(req, res)=>{
-    const {month, year} = req.params;
+router.get('/total/:id_store', async(req, res)=>{
+    const {id_store} = req.params;
+    const {month, year} = req.body;
     const [row] = await db.query(`
-    select sum(invoice.total_price) as total_amount
-        , EXTRACT(YEAR_MONTH from invoice.date) as month
-        , invoice.date
-    from invoice
-    where invoice.status = "pagado-enviado"
-    and invoice.id_store = "2";
-    `,[id])
+    SELECT SUM(invoice.total_price) as total_amount
+        , EXTRACT(YEAR from invoice.date) as year
+        , EXTRACT(MONTH from invoice.date) as month
+    FROM invoice
+    WHERE invoice.status = "pagado-enviado"
+    AND invoice.id_store = ?
+    AND EXTRACT(MONTH from invoice.date) = ?
+    AND EXTRACT(YEAR from invoice.date) = ?;
+    `,[id_store, month, year]);
     res.status(200).json(row) 
 });
 module.exports = router;

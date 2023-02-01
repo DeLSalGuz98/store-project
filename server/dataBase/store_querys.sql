@@ -134,8 +134,8 @@ and invoice.status = "pagado-enviado";
 
 --get total amount by month
 select sum(invoice.total_price) as total_amount
-    , EXTRACT(YEAR_MONTH from invoice.date) as month
-    , invoice.date
+        , EXTRACT(YEAR from invoice.date) as year
+        , EXTRACT(MOTH from invoice.date) as month
 from invoice
 where invoice.status = "pagado-enviado"
 and invoice.id_store = "2";
