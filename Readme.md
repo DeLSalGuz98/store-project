@@ -56,8 +56,8 @@
 * [x] crear rutas UPDATE
 * [ ] crear Rutas DELETE
 * [x] crear ruta de registro de usuario
-* [ ] encriptar contraseña
-* [ ] crear autenticacion de usuario
+* [x] encriptar contraseña
+* [x] crear autenticacion de usuario
 ### Frontend
 * [ ] crear header
 * [ ] crear menu
