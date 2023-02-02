@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const jwt = require('jsonwebtoken');
 
 const conection = require('../conection/conection.js')
 let db;
@@ -27,11 +28,15 @@ router.use(async function(req, res, next) {
     "photo": "luc.png"
 }
 */
-router.put('/edit-user/:id', async(req, res)=>{
+router.put('/edit-user', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
     try {
-        const {id} = req.params;
+        const token = req.headers.authorization;
+        const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
         const {name, lastname, sex, user_name, password, country, city, address, photo} = req.body;
-        const [row] = await db.query(`
+        await db.query(`
             UPDATE user
             SET name = ?, 
             lastname = ?, 
@@ -43,7 +48,7 @@ router.put('/edit-user/:id', async(req, res)=>{
             address = ?, 
             photo = ?
             WHERE id = ?;
-        `, [name, lastname, sex, user_name, password, country, city, address, photo, id]);
+        `, [name, lastname, sex, user_name, password, country, city, address, photo, tokenData.id]);
         res.sendStatus(200);
     } catch (error) {
         res.sendStatus(418)
@@ -62,6 +67,9 @@ router.put('/edit-user/:id', async(req, res)=>{
 }
 */
 router.put('/edit-product/:id_product', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
     try {
         const {id_product} = req.params;
         const {name, description, price, date, stock, image} = req.body;
@@ -82,6 +90,9 @@ router.put('/edit-product/:id_product', async(req, res)=>{
 });
 //send product to client
 router.put('/send-product/:id_invoice', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
     try {
         const {id_invoice} = req.params;
         const {date} = req.body;

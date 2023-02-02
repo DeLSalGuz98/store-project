@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
 const conection = require('../conection/conection.js');
 let db;
@@ -12,36 +12,6 @@ router.use(async function(req, res, next) {
     db = await conection();
     next();
 });
-
-//USER
-//register new user
-/*
-{
-    "name":"lucas",
-    "lastname":"guerra",
-    "sex": "hombre",
-    "user_name": "luc23",
-    "password": "123",
-    "country":"peru",
-    "city": "lima",
-    "address": "miraflores123",
-    "photo": "luc.png"
-}
-*/
-//create new user
-router.post('/new-user', async(req, res)=>{
-    try {
-        const {name, lastname, sex, user_name, password, country, city, address, photo} = req.body;
-        const hash = bcrypt.hashSync(password, 5);
-        const [row] = await db.query(`
-            INSERT INTO user(name, lastname, sex, user_name, password, country, city, address, photo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);`, 
-            [name, lastname, sex, user_name, hash, country, city, address, photo]);
-        res.status(201).json(row);
-    } catch (error) {
-        console.log(error)
-    }
-});
-
 //SELER
 /*
 {
@@ -53,16 +23,21 @@ router.post('/new-user', async(req, res)=>{
 */
 //create new store
 router.post('/new-store', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
     try {
-        const {name, type, date, id_user} = req.body;
+        const token = req.headers.authorization;
+        const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
+        const {name, type, date} = req.body;
         const [row] = await db.query(`
         INSERT INTO store(name, type, date, id_user) VALUES(?, ?, ?, ?);
-        `,[name, type, date, id_user]);
+        `,[name, type, date, tokenData.id]);
         res.status(201).json(row);
     } catch (error) {
         console.log(error)
+        return res.sendStatus(401)
     }
-
 });
 /*
 {
@@ -77,6 +52,9 @@ router.post('/new-store', async(req, res)=>{
 */
 // create new product
 router.post('/new-product', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
     try {
         const {name, description, price, date, stock, image, id_store} = req.body;
         const [row] = await db.query(`
@@ -87,6 +65,7 @@ router.post('/new-product', async(req, res)=>{
         res.status(201).json(row)
     } catch (error) {
         console.log(error)
+        return res.sendStatus(401)
     }
 });
 
@@ -101,13 +80,19 @@ router.post('/new-product', async(req, res)=>{
 */
 // add product to shipping cart
 router.post('/add-shipping-cart', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
     try {
+        const token = req.headers.authorization;
+        const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
+        
         // status(comprado, sin-comprado)
         const {quantity, unit_price, id_user, id_product} = req.body;
         const [row] = await db.query(`
         INSERT INTO order_buy(quantity, unit_price, status, id_user, id_product) VALUES
         (?,?, "sin-comprar",?,?);
-        `,[quantity, unit_price, id_user, id_product]);
+        `,[quantity, unit_price, tokenData.id, id_product]);
         res.status(201).json(row);
     } catch (error) {
         console.log(eror)
@@ -125,6 +110,9 @@ router.post('/add-shipping-cart', async(req, res)=>{
 */
 // buy product
 router.post('/buy-product', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
     try {
         const {quantity, id_product, date, total_price, id_store, id_order_buy} = req.body;
         let [row] = await db.query(`START TRANSACTION;`);
@@ -146,6 +134,7 @@ router.post('/buy-product', async(req, res)=>{
         res.status(201).json(row);
     } catch (error) {
         console.log(error)
+        return res.sendStatus(401)
     }
 });
 

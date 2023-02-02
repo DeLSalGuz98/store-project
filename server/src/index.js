@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const session = require('express-session');
+require('dotenv').config();
 
 const gets = require('./routes/gets.js');
 const posts = require('./routes/posts.js');
@@ -11,12 +11,6 @@ const auth = require('./auth/auth.js');
 //MIDDLEWARES
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
-app.use(session({
-    secret:'this is secret word',
-    resave: true,
-    saveUninitialized:true
-}))
 
 //ROUTES
 app.use('/api-get', gets);
