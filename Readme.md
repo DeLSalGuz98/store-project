@@ -59,7 +59,7 @@
 * [x] encriptar contraseña
 * [x] crear autenticacion de usuario
 ### Frontend
-* [ ] crear header
+* [x] crear header
 * [ ] crear menu
 * [ ] crear tienda
 * [ ] crear producto nuevo

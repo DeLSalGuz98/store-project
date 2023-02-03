@@ -1,0 +1,38 @@
+header{
+    height: 3.5rem;
+    padding: 0 2rem;
+    background-color: var(--green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nameStore{
+    display: inline-block;
+    font-family: var(--font-one);
+    font-weight: 200;
+    color: var(--white);
+    font-size: 3rem;
+}
+.header-nav{
+    display: flex;
+    justify-content: space-around;
+    width: 15rem;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.header-userName{
+    font-family: var(--font-two);
+    color: var(--white);
+}
+.header-itemNav{
+    display: inline-block;
+    font-family: var(--font-two);
+    color: var(--white);
+}
+.header-itemNav:hover{
+    text-decoration: underline;
+}
