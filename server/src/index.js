@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const port = 3000;
 require('dotenv').config();
 
@@ -11,7 +12,7 @@ const auth = require('./auth/auth.js');
 //MIDDLEWARES
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
+app.use(cors());
 //ROUTES
 app.use('/api-get', gets);
 app.use('/api-post', posts);

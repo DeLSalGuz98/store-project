@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './header.css';
 export function Header(){
-    const [isAuth, setIsAuth] = useState(true);
+    const [isAuth, setIsAuth] = useState(false);
+    useEffect(()=>{
+        if(Boolean(localStorage.getItem('userAuth')) == true){
+            setIsAuth(true)
+        }
+    },[isAuth]);
     return(
         <header className="header">
             <h1><Link className="nameStore" to="/">Store</Link></h1>

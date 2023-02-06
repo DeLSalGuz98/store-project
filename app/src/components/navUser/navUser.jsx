@@ -1,8 +1,16 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import man from '../../assets/u_man.jpg';
 import './navUser.css'
 
 export function NavUser(){
+    const navigate = useNavigate();
+    const exitSession = (e)=>{
+        e.preventDefault();
+        localStorage.removeItem('token');
+        localStorage.removeItem('userAuth');
+        navigate('/');
+    }
     return(
         <div className="user">
             <div className="user-data">
@@ -16,7 +24,7 @@ export function NavUser(){
                     <li><Link className="user-navItem" to="/login">My Stores</Link></li>
                     <li><Link className="user-navItem" to="/login">Shipping Cart</Link></li>
                     <li><Link className="user-navItem" to="/login">Edit my Data</Link></li>
-                    <li><Link className="user-navItem" to="/login">Exit Session</Link></li>
+                    <li><a className="user-navItem" href="#" onClick={exitSession}>Exit Session</a></li>
                 </ul>
             </nav>
         </div>

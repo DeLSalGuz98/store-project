@@ -20,6 +20,25 @@
 * obtener la suma de todos los precios del ultimo mes
 */
 --USER
+-- INSERT DATA
+
+INSERT INTO user(name, lastname, sex, user_name, password, country, city, address, photo) VALUES
+("juan", "guevara", "hombre", "juanito", "1234", "alemania", "Berlin", "nueva berlin 123", "user1.png"),
+("maria", "olivera", "mujer", "mari", "1234", "peru", "cusco", "magisterio A5", "user2.png");
+
+INSERT INTO store(name, type, date, id_user) VALUES
+("cool store", "ropa de mujer", "2020-01-05 10:10:10", "1"),
+("urban shop", "ropa de varon", "2020-02-03 10:10:10", "2");
+
+INSERT INTO product(
+    name, description, price, date, stock, image, id_store
+) VALUES
+("falda", "falda roja talla m", "49.50", "2020-01-05 10:10:10", "5", "faldaRoja.png", "1"),
+("chompa", "chompa roja talla m", "87.20", "2020-01-05 10:10:10", "3", "chompaRoja.png", "1"),
+("blusa", "blusa blanca talla m", "27.90", "2020-01-05 10:10:10", "8", "blusaBlanca.png", "1"),
+("pantalon", "pantalon jean talla m", "47.50", "2020-01-05 10:10:10", "5", "pantalon.png", "2"),
+("camisa", "camisa blaca talla m", "85.20", "2020-01-05 10:10:10", "3", "camisa.png", "2"),
+("sueter", "sueter plomo talla m", "29.90", "2020-01-05 10:10:10", "8", "sueter.png", "2");
 --get user with username
 select *
 from user where username = "juanito23";

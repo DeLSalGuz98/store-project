@@ -65,7 +65,7 @@ router.post('/new-user', async(req, res)=>{
         const token = genToken(row.insertId)
         res.status(200).json({auth: true, token: token});
     } catch (error) {
-        console.log(error)
+        res.sendStatus(400)
     }
 });
 
