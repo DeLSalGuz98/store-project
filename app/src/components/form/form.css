@@ -26,6 +26,8 @@
     border-radius: 5px;
     outline: none;
     letter-spacing: 1px;
+    color: var(--blue);
+    background-color: var(--white);
 }
 .input::placeholder{
     color: var(--blue);

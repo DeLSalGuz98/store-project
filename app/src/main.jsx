@@ -11,6 +11,9 @@ import { NotFound } from './pages/notFound'
 import { Home } from './pages/home';
 import { Login } from './pages/login';
 import { Signup } from './pages/signup';
+import { UserPage } from './pages/userPage';
+import { SeeProducts } from './pages/seeProducts';
+import { CreateStore } from './pages/createStore';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +32,21 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup/>,
+      },
+      {
+        path: "/store",
+        element: <UserPage/>,
+        children:[
+          {
+            path: "/store",
+            element: <SeeProducts/>
+          },
+          {
+            path: "/store/create-store",
+            element: <CreateStore/>,
+          },
+        ]
       }
-      
     ]
   },
 ]);

@@ -1,0 +1,47 @@
+.user{
+    font-size: 1rem;
+    height: 100%;
+    width: 25%;
+    background-color: var(--blue);
+}
+.user-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2em 0;
+    height: 15em;
+}
+.user-photo{
+    width: 8em;
+    height: 8em;
+    margin:  0 auto;
+    border-radius: 100%;
+}
+.user-name{
+    margin-top: 1em;
+    text-align: center;
+    color: var(--white);
+    font-size: 1.5em;
+}
+.user-nav{
+    height: calc(100% - 15em);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.user-navItem{
+    display: inline-block;
+    width: 100%;
+    line-height: 3em;
+    text-align: center;
+    color: var(--white);
+    border-top: solid 2px var(--white);
+    transition: background-color .5s;
+}
+.user-navItem:hover{
+    background-color: var(--dark-blue);
+    text-decoration: underline;
+}
+.user-nav ul:last-child{
+    border-bottom: solid 2px var(--white);
+}
