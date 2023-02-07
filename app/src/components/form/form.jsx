@@ -25,7 +25,6 @@ export function LoginForm(){
             }
         }
         else if(res.status == 200){
-            console.log(res);
             localStorage.setItem('userAuth', res.data.auth);
             localStorage.setItem('token', res.data.token);
             setWaitRes(false);
@@ -45,6 +44,8 @@ export function LoginForm(){
     )
 }
 export function SignupForm(){
+    const navigate = useNavigate();
+    const [waitRes, setWaitRes] = useState(false);
     const [newUser, setNewUser] = useState({
         "name":"",
         "lastname":"",
@@ -60,6 +61,7 @@ export function SignupForm(){
         setNewUser({...newUser, [name]: value});
     }
     const handleSubmit = async(e)=>{
+        setWaitRes(true);
         e.preventDefault();
         const res = await sendDataToApi('http://localhost:3000/auth/new-user', newUser)
         if(res.status == 200){
@@ -67,8 +69,10 @@ export function SignupForm(){
             localStorage.setItem('userAuth', res.data.auth);
             localStorage.setItem('token', res.data.token);
             navigate("/store");
+            setWaitRes(false);
         }else{
-            alert('sorry!, try again')
+            alert('sorry!, prove other username')
+            setWaitRes(false);
         }
     }
     return(
@@ -87,7 +91,7 @@ export function SignupForm(){
                 <input className='input' name="country" type="text" placeholder='Country' onChange={handleChange} required/>
                 <input className='input' name="city" type="text" placeholder='City' onChange={handleChange} required/>
                 <input className='input' name="address" type="text" placeholder='Address' onChange={handleChange} required/>
-                <input className='btn-form' type="submit" value="Register" />
+                <input className='btn-form' type="submit" value={waitRes == true? 'wait a moment...' : 'Register'} />
                 <Link className='link' to="/login">I have already an acount</Link>
             </div>            
         </form>

@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
+import { Header } from "../components/header/header";
 import { NavUser } from "../components/navUser/navUser"
 
 export function UserPage(){
@@ -10,9 +11,12 @@ export function UserPage(){
         }
     }, []);
     return(
-        <section className="store-container">
-            <NavUser/>
-            <Outlet/>
-        </section>
+        <>
+            <Header/>
+            <section className="store-container">
+                <NavUser/>
+                <Outlet/>
+            </section>
+        </>
     )
 }

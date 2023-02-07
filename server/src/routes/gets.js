@@ -25,7 +25,7 @@ router.get('/profile', async function(req, res) {
         res.status(200).json(row[0])    
         
     } catch (error) {
-        return res.sendStatus(401)
+        return res.sendStatus(400)
     }
 });
 //CLIENT

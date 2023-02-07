@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { getDataUser } from "../../services/getApi";
 import './header.css';
 export function Header(){
+    const [userName, setUserName] = useState('')
     const [isAuth, setIsAuth] = useState(false);
     useEffect(()=>{
         if(Boolean(localStorage.getItem('userAuth')) == true){
             setIsAuth(true)
+            userData();
         }
-    },[isAuth]);
+    },[]);
+    //userData
+    const userData = async ()=>{
+        const res = await getDataUser();
+        setUserName(`${res.name} ${res.lastname}`)
+    }
     return(
         <header className="header">
             <h1><Link className="nameStore" to="/">Store</Link></h1>
             {
-                isAuth ==true? <span className="header-userName">Name LastName</span> :
+                isAuth ==true? <span className="header-userName">{userName}<ion-icon name="person-circle-outline"></ion-icon></span> :
                 <nav>
                     <ul className="header-nav">
                         <li><Link className="header-itemNav" to="/login">Log In</Link></li>
