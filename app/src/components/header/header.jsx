@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getDataUser } from "../../services/getApi";
+import { getDataApi } from "../../services/getApi";
 import './header.css';
 export function Header(){
     const [userName, setUserName] = useState('')
@@ -13,7 +13,7 @@ export function Header(){
     },[]);
     //userData
     const userData = async ()=>{
-        const res = await getDataUser();
+        const res = await getDataApi('/profile');
         setUserName(`${res.name} ${res.lastname}`)
     }
     return(

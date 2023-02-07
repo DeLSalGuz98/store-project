@@ -15,7 +15,9 @@ export function UserPage(){
             <Header/>
             <section className="store-container">
                 <NavUser/>
-                <Outlet/>
+                <section className="container-app">
+                    <Outlet/>
+                </section>
             </section>
         </>
     )

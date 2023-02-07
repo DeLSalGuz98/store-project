@@ -2,6 +2,29 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './form.css'
 import { sendDataToApi } from '../../services/conectApi'
+import { postDataToApi } from '../../services/postApi';
+
+export function FormComponent({children, titleForm, submitData, url, btnName}){
+    const [waitRes, setWaitRes] = useState(false);
+    const handleSubmit = async (e)=>{
+        e.preventDefault();
+        if(url == '/auth'){
+            console.log('post to auth');
+        }else{
+            const res = await postDataToApi(url, submitData);
+            console.log(res)
+        }
+    }
+    return(
+        <form className='form' onSubmit={handleSubmit}>
+            <h2 className='title-form'>{titleForm}</h2>
+            <div className='container-form'>
+                {children}
+                <input className='btn-form' type="submit" value={waitRes == true? 'wait a moment...' : btnName} />
+            </div>            
+        </form>
+    )
+}
 
 export function LoginForm(){
     const navigate = useNavigate();

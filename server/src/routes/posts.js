@@ -36,7 +36,7 @@ router.post('/new-store', async(req, res)=>{
         res.status(201).json(row);
     } catch (error) {
         console.log(error)
-        return res.sendStatus(401)
+        return res.sendStatus(400)
     }
 });
 /*
