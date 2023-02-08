@@ -26,6 +26,7 @@ app.use(multer({
     storage: storage,
     dest: path.join(__dirname, 'public/uploads')
 }).single('image'))
+app.use('/images', express.static(path.join(__dirname,'./public/uploads')));
 //ROUTES
 app.use('/api-get', gets);
 app.use('/api-post', posts);

@@ -30,26 +30,27 @@ router.get('/profile', async function(req, res) {
     }
 });
 //send photo user
-router.get('/get-photo-user', async function(req, res) {
-    if(!req.headers.authorization){
-        return res.sendStatus(401)
-    }
-    try {
-        const token = req.headers.authorization;
-        const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
-        const [row] = await db.query('SELECT photo FROM user WHERE id =?',[tokenData.id])
-        if(row[0].photo == null){
-            res.status(200).json({"message": "user don't have any photo"})
-        }else{
-            // const {image} = req.params
-            pathImage = path.join(__dirname, '../public/uploads', row[0].photo)
-            console.log(pathImage);
-            res.status(200).sendFile(pathImage)
-        }
-    } catch (error) {
-        return res.sendStatus(400)
-    }
-});
+// router.get('/get-photo-user', async function(req, res) {
+//     if(!req.headers.authorization){
+//         return res.sendStatus(401)
+//     }
+//     try {
+//         const token = req.headers.authorization;
+//         const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
+//         const [row] = await db.query('SELECT photo FROM user WHERE id =?',[tokenData.id])
+//         if(row[0].photo == null){
+//             res.status(200).json({"message": "user don't have any photo"})
+//         }else{
+//             // const {image} = req.params
+//             pathImage = path.join(__dirname, '../public/uploads', row[0].photo)
+//             console.log(pathImage);
+//             //res.status(200).sendFile(pathImage)
+//             res.status(200).json({"dirImg": pathImage})
+//         }
+//     } catch (error) {
+//         return res.sendStatus(400)
+//     }
+// });
 //CLIENT
 //show all products
 router.get('/all-products', async function(req, res) {

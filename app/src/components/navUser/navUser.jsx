@@ -22,13 +22,15 @@ export function NavUser(){
         haveStores();
     }
     //get user photo
-    const setUserPhoto = (user)=>{
+    const setUserPhoto = async(user)=>{
         if(!user.photo){
             if(user.sex == 'hombre'){
                 setPhoto(man)
             }else{
                 setPhoto(woman)
             }
+        }else{
+            setPhoto(`http://localhost:3000/images/${user.photo}`);
         }
     }
     //user have stores

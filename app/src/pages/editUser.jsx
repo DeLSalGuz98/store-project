@@ -19,7 +19,7 @@ export function EditUser(){
     },[]);
     const getDataUser = async()=>{
         const res = await getDataApi('/profile')
-        console.log(res)
+        //console.log(res)
         setUserData({...userData, 
             "name": res.name,
             "lastname":res.lastname,
@@ -35,6 +35,7 @@ export function EditUser(){
     } 
     return (
         <div className="user-editData">
+            {/**falta enviar la informacion para actualizar la informacion del usuario */}
             <FormComponent
                 titleForm="Edit Data User"
                 submitData={userData}
