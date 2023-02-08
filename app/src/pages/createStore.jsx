@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormComponent } from "../components/form/form";
 import { GetDate } from "../services/getDate";
 
@@ -13,15 +13,16 @@ export function CreateStore(){
         setStore({...store, [name]: value, "date": GetDate()})
     }
     return(
-        <div>
+        <div className="store-containerForm">
             <FormComponent
                 titleForm="Create New Store"
                 submitData={store}
                 url='/new-store'
                 btnName='Create'
+                classForm='form-two'
             >
-                <input className='input' name="name" type="text" placeholder='Store Name' onChange={handleChange} required/>
-                <input className='input' name="type" type="text" placeholder='Type Products' onChange={handleChange} required/>
+                <input className='input input-border' name="name" type="text" placeholder='Store Name' onChange={handleChange} required/>
+                <input className='input input-border' name="type" type="text" placeholder='Type Products' onChange={handleChange} required/>
             </FormComponent>
         </div>
     )

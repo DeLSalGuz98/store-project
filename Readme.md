@@ -60,8 +60,8 @@
 * [x] crear autenticacion de usuario
 ### Frontend
 * [x] crear header
-* [ ] crear menu
-* [ ] crear tienda
+* [x] crear menu
+* [x] crear tienda
 * [ ] crear producto nuevo
 * [ ] visualizar todos los productos creados
 * [ ] editar producto

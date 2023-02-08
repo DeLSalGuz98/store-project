@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const path = require('path');
 
 const conection = require('../conection/conection.js')
 let db;
@@ -102,6 +104,31 @@ router.put('/send-product/:id_invoice', async(req, res)=>{
             date = ?
             WHERE id=?;
         `, [date, id_invoice]);
+        res.sendStatus(200);
+    } catch (error) {
+        res.sendStatus(418)
+    }
+});
+//update user photo
+router.put('/upload-photo-user', async(req, res)=>{
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
+    try {
+        const token = req.headers.authorization;
+        const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
+        const {originalname} = req.file
+        let [row] = await db.query(`
+            SELECT photo FROM user WHERE id = ? 
+        `, [ tokenData.id]);
+        if(row[0].photo != null){
+            fs.unlinkSync(path.join(__dirname, '../public/uploads', row[0].photo))
+        }
+        await db.query(`
+        UPDATE user
+            SET photo = ?
+            WHERE id = ?;
+        `, [originalname, tokenData.id]);
         res.sendStatus(200);
     } catch (error) {
         res.sendStatus(418)

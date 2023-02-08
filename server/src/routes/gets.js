@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 const conection = require('../conection/conection.js')
 let db;
@@ -24,6 +25,27 @@ router.get('/profile', async function(req, res) {
         const [row] = await db.query('SELECT * FROM user WHERE id =?',[tokenData.id])
         res.status(200).json(row[0])    
         
+    } catch (error) {
+        return res.sendStatus(400)
+    }
+});
+//send photo user
+router.get('/get-photo-user', async function(req, res) {
+    if(!req.headers.authorization){
+        return res.sendStatus(401)
+    }
+    try {
+        const token = req.headers.authorization;
+        const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
+        const [row] = await db.query('SELECT photo FROM user WHERE id =?',[tokenData.id])
+        if(row[0].photo == null){
+            res.status(200).json({"message": "user don't have any photo"})
+        }else{
+            // const {image} = req.params
+            pathImage = path.join(__dirname, '../public/uploads', row[0].photo)
+            console.log(pathImage);
+            res.status(200).sendFile(pathImage)
+        }
     } catch (error) {
         return res.sendStatus(400)
     }

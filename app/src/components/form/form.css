@@ -1,16 +1,23 @@
-.form{
+.form-one{
     background-color: var(--blue);
+    box-shadow: -10px 10px 10px #000000;
+    color: var(--white);
+    margin: auto 0;
+}
+.form-two{
+    background-color: var(--white);
+    box-shadow: 0 0 10px;
+    color: var(--blue);
+}
+.form{
     font-size: 1rem;
     width: 25em;
     height: fit-content;
-    margin: auto 0;
     padding: 1.5em 1em;
     border-radius: 10px;
-    box-shadow: -10px 10px 10px;
 }
 .title-form{
     text-align: center;
-    color: var(--white);
     margin-bottom: .5em;
 }
 .container-form{
@@ -28,6 +35,9 @@
     letter-spacing: 1px;
     color: var(--blue);
     background-color: var(--white);
+}
+.input-border{
+    border: solid 2px var(--blue);
 }
 .input::placeholder{
     color: var(--blue);

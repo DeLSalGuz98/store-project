@@ -24,7 +24,7 @@ export function Header(){
                 <nav>
                     <ul className="header-nav">
                         <li><Link className="header-itemNav" to="/login">Log In</Link></li>
-                        <li><Link className="header-itemNav" to="signup">Sign Up</Link></li>
+                        <li><Link className="header-itemNav" to="/signup">Sign Up</Link></li>
                     </ul>
                 </nav> 
             }
