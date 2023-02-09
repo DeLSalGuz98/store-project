@@ -1,0 +1,23 @@
+.card-large{
+    font-size: 1rem;
+    font-family: var(--font-two);
+    height: 4em;
+    padding: 0 2em;
+    box-shadow: 0 0 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.single-btn{
+    font-size: 1em;
+    border: none;
+    background-color: var(--green);
+    color: var(--white);
+    height: 2.5em;
+    width: 8em;
+    border-radius: 10px;
+}
+.single-btn:hover{
+    background-color: var(--dark-green);
+}

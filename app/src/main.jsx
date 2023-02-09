@@ -14,6 +14,7 @@ import { Signup } from './pages/signup';
 import { UserPage } from './pages/userPage';
 import { SeeProducts } from './pages/seeProducts';
 import { CreateStore } from './pages/createStore';
+import { MyStores } from './pages/myStores';
 import { EditUser } from './pages/editUser';
 
 const router = createBrowserRouter([
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
           {
             path: "/store/create-store",
             element: <CreateStore/>,
+          },
+          {
+            path: "/store/my-stores",
+            element: <MyStores/>,
           },
           {
             path: "/store/edit-user",

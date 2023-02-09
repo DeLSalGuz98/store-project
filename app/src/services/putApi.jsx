@@ -12,7 +12,7 @@ export const putDataApi = async(url, data)=>{
             data: data
         });
         if(res.status == 200){
-            return res.data
+            return res
         }
     }catch(err){
         return err

@@ -59,7 +59,7 @@ export function NavUser(){
                     <li><Link className="user-navItem" to="/store/create-store">Create Store</Link></li>
                     {
                         userHaveStores?
-                        <li><Link className="user-navItem" to="/login">My Stores</Link></li>
+                        <li><Link className="user-navItem" to="/store/my-stores">My Stores</Link></li>
                         : <></>
                     }
                     <li><Link className="user-navItem" to="/login">Shipping Cart</Link></li>

@@ -7,9 +7,7 @@ export function EditUser(){
     const [userData, setUserData] = useState({
         "name":"",
         "lastname":"",
-        "sex": "",
         "user_name": "",
-        "password": "",
         "country":"",
         "city": "",
         "address": ""
@@ -51,9 +49,7 @@ export function EditUser(){
                 <input className='input input-border' name="city" type="text" placeholder='City' onChange={handleChange} required value={userData.city}/>
                 <input className='input input-border' name="address" type="text" placeholder='Address' onChange={handleChange} required value={userData.address}/>
             </FormComponent>
-            <div className="photoUser">
-                <FormImage/>
-            </div>
+            <FormImage/>
         </div>
     )
 }

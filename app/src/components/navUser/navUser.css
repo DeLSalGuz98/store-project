@@ -22,12 +22,14 @@
     text-align: center;
     color: var(--white);
     font-size: 1.5em;
+    font-family: var(--font-two);
 }
 .user-nav{
     height: calc(100% - 15em);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: var(--font-two);
 }
 .user-navItem{
     display: inline-block;

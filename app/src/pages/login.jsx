@@ -1,11 +1,18 @@
 import { HomeConatiner } from "../components/homeContainer/homeContainer"
 import { FormComponent } from "../components/form/form"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 export function Login(){
     const [credentials, setCredentials] = useState({
         "user_name": "",
         "password": ""
     });
+    const navigate = useNavigate();
+    useEffect(()=>{
+        if(Boolean(localStorage.getItem('userAuth')) == true){
+            navigate('/store');
+        }
+    }, []);
     const handleChange = (e)=>{
         const {name, value} = e.target;
         setCredentials({...credentials, [name]: value});

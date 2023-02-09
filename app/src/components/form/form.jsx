@@ -3,9 +3,37 @@ import { Link, useNavigate } from 'react-router-dom'
 import './form.css'
 import { sendDataToApi } from '../../services/conectApi'
 import { postDataToApi } from '../../services/postApi';
+import { putDataApi } from '../../services/putApi';
+
+const putRoutes = [
+    {
+        url: '/edit-user',
+        redirect: '/'
+    },
+    {
+        url: '/edit-product',
+        redirect: '/'
+    },
+    {
+        url: '/send-product',
+        redirect: '/'
+    },
+    {
+        url: '/upload-photo-user',
+        redirect: '/'
+    }
+    
+]
+const postRoutes= [
+    {
+        url: '/new-store',
+        redirect: '/store/my-stores'
+    }
+]
 
 export function FormComponent({children, titleForm, submitData, url, btnName, classForm}){
     const navigate = useNavigate();
+    let redirect = '';
     const [newClass, setNewClass] = useState('form-one')
     const [waitRes, setWaitRes] = useState(false);
     useEffect(()=>{
@@ -16,7 +44,6 @@ export function FormComponent({children, titleForm, submitData, url, btnName, cl
         setWaitRes(true);
         if(url == '/login-user' || url == '/new-user'){
                 const res = await sendDataToApi(url, submitData);
-                console.log(res)
                 if(res.response != undefined){
                     if(res.response.request.status != 200){
                         alert(res.response.data.message);
@@ -28,9 +55,15 @@ export function FormComponent({children, titleForm, submitData, url, btnName, cl
                     setWaitRes(false);
                     navigate("/store");
                 }
-        }else{
-            const res = await postDataToApi(url, submitData);
-            console.log(res)
+        }else if(putRoutes.find(e=> {if(e.url == url){ redirect = e.redirect; return true} })){
+            await putDataApi(url, submitData)
+            setWaitRes(false); 
+            navigate(redirect); 
+        }
+        else if(postRoutes.find(e=> {if(e.url == url){ redirect = e.redirect; return true} })){
+            await postDataToApi(url, submitData);
+            setWaitRes(false);
+            navigate(redirect);
         }
     }
     return(

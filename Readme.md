@@ -62,6 +62,7 @@
 * [x] crear header
 * [x] crear menu
 * [x] crear tienda
+* [ ] visualizar todas dal tiendas del usuario
 * [ ] crear producto nuevo
 * [ ] visualizar todos los productos creados
 * [ ] editar producto
@@ -73,15 +74,11 @@
 * [ ] comprar producto
 * [ ] enviar producto
 * [ ] visualizar ventas
-* [ ] registrar usuario nuevo
-* [ ] autenticar usuario
-* [ ] cerrar sesion
-* [ ] proteger rutas
-* [ ] editar datos del usaurio
-
-## Descripcion de la base de datos
-Se debe crear una base de datos donde los usuarios podran ser registrados, para ello debemos saber su **(nombre, apellido, sexo, nombre de usuario, pais, ciudad, direccion y contraseña)**, cada usuario podra crear una o más tiendas, de cada tienda queremos saber su **(nombre, tipo de articulos que vende, fecha de creacion)**, cada usaurio podra agregar un varios productos a su tienda, cada producto pertenecera a una tienda en particular, lo que nos intereza de los productos es saber su **(nombre, una descripcion, el precio, la fecha de creacion, el stock, y minimo una imagen del producto)**.
-Tambien cada usaurio podra visualizar los productos que venden otros usuarios, y agregarlos a su carrito de compras aqui nos interesa visualizar su **(nombre del producto, nombre de la tienda, el precio, estado de la compra "agregado, comprado" )**, cada producto puede ser pagado indicidualmente; los usuarios recibiran notificaciones de los pedidos, es decir si otro usuario ha realizado la compra, el vendedor debe poder visualizar su **(nombre, direccion ,estado "pendiente, enviado")**.   
+* [x] registrar usuario nuevo
+* [x] autenticar usuario
+* [x] cerrar sesion
+* [x] proteger rutas
+* [x] editar datos del usaurio   
 
 ## Recursos de Internet
 

@@ -37,23 +37,21 @@ router.put('/edit-user', async(req, res)=>{
     try {
         const token = req.headers.authorization;
         const tokenData = jwt.verify(token, process.env.NODE_SECRET_WORD);
-        const {name, lastname, sex, user_name, password, country, city, address, photo} = req.body;
+        const {name, lastname, user_name, country, city, address, photo} = req.body;
         await db.query(`
             UPDATE user
             SET name = ?, 
             lastname = ?, 
-            sex = ?, 
             user_name = ?, 
-            password = ?, 
             country = ?, 
             city = ?, 
             address = ?, 
             photo = ?
             WHERE id = ?;
-        `, [name, lastname, sex, user_name, password, country, city, address, photo, tokenData.id]);
+        `, [name, lastname, user_name, country, city, address, photo, tokenData.id]);
         res.sendStatus(200);
     } catch (error) {
-        res.sendStatus(418)
+        res.sendStatus(400)
     }
 });
 //SELER
