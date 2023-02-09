@@ -28,7 +28,7 @@
   ---USUARIO---
   * [x] crear usaurio
   * [x] obtener los datos del usuario solo con su user_name
-  * [ ] mostrar los datos del usuario especifico
+  * [x] mostrar los datos del usuario especifico
   * [x] editar los datos de usuario (nombre, apellido, sexo, username, contraseña, pais, cuidad, direccion, foto)
   
   ---CLIENTE---
@@ -62,7 +62,7 @@
 * [x] crear header
 * [x] crear menu
 * [x] crear tienda
-* [ ] visualizar todas dal tiendas del usuario
+* [x] visualizar todas dal tiendas del usuario
 * [ ] crear producto nuevo
 * [ ] visualizar todos los productos creados
 * [ ] editar producto

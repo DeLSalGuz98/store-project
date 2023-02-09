@@ -16,6 +16,9 @@ import { SeeProducts } from './pages/seeProducts';
 import { CreateStore } from './pages/createStore';
 import { MyStores } from './pages/myStores';
 import { EditUser } from './pages/editUser';
+import { StorePage } from './pages/storePage';
+import { AllProducts } from './pages/allProducts';
+import { NewProduct } from './pages/newProduct';
 
 const router = createBrowserRouter([
   {
@@ -36,24 +39,38 @@ const router = createBrowserRouter([
         element: <Signup/>,
       },
       {
-        path: "/store",
+        path: "/user",
         element: <UserPage/>,
         children:[
           {
-            path: "/store",
+            path: "/user",
             element: <SeeProducts/>
           },
           {
-            path: "/store/create-store",
+            path: "/user/create-store",
             element: <CreateStore/>,
           },
           {
-            path: "/store/my-stores",
+            path: "/user/my-stores",
             element: <MyStores/>,
           },
           {
-            path: "/store/edit-user",
+            path: "/user/edit-user",
             element: <EditUser/>,
+          },
+        ]
+      },
+      {
+        path: "/store/:idStore",
+        element: <StorePage/>,
+        children:[
+          {
+            path: "/store/:idStore/all-products",
+            element: <AllProducts/>,
+          },
+          {
+            path: "/store/:idStore/new-product",
+            element: <NewProduct/>,
           },
         ]
       }

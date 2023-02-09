@@ -27,7 +27,7 @@ const putRoutes = [
 const postRoutes= [
     {
         url: '/new-store',
-        redirect: '/store/my-stores'
+        redirect: '/user/my-stores'
     }
 ]
 
@@ -53,7 +53,7 @@ export function FormComponent({children, titleForm, submitData, url, btnName, cl
                     localStorage.setItem('userAuth', res.auth);
                     localStorage.setItem('token', res.token);
                     setWaitRes(false);
-                    navigate("/store");
+                    navigate("/user");
                 }
         }else if(putRoutes.find(e=> {if(e.url == url){ redirect = e.redirect; return true} })){
             await putDataApi(url, submitData)

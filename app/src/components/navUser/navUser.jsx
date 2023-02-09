@@ -8,11 +8,18 @@ import './navUser.css'
 export function NavUser(){
     const [user, setUser] = useState({});
     const [userHaveStores, setUserHaveStores] = useState(false);
+    const storeParam = location.pathname.split('/')[2]
+    const [isStoreUrl, setIsStoreUrl] = useState(false);
     const [photo, setPhoto] = useState('');
     const navigate = useNavigate();
     //component mount
     useEffect(()=>{
         userData();
+        if(location.pathname.split('/')[1] == 'store'){
+            setIsStoreUrl(true)
+        }else{
+            setIsStoreUrl(false)
+        }
     },[]);
     //get user's data
     const userData = async ()=>{
@@ -54,18 +61,29 @@ export function NavUser(){
                 <p className="user-name">{`${user.name} ${user.lastname}`}</p>
             </div>
             <nav className="user-nav">
-                <ul>
-                    <li><Link className="user-navItem" to="/store">See Products</Link></li>
-                    <li><Link className="user-navItem" to="/store/create-store">Create Store</Link></li>
-                    {
-                        userHaveStores?
-                        <li><Link className="user-navItem" to="/store/my-stores">My Stores</Link></li>
-                        : <></>
-                    }
-                    <li><Link className="user-navItem" to="/login">Shipping Cart</Link></li>
-                    <li><Link className="user-navItem" to="/store/edit-user">Edit my Data</Link></li>
-                    <li><a className="user-navItem" href="#" onClick={exitSession}>Exit Session</a></li>
-                </ul>
+                {
+                    isStoreUrl ?
+                    <ul>
+                        <li><Link className="user-navItem" to={`/store/${storeParam}/new-product`}>Add New Product</Link></li>
+                        <li><Link className="user-navItem" to={`/store/${storeParam}/all-products`}>All Products</Link></li>
+                        <li><Link className="user-navItem" to={`/store/${storeParam}`}>Shipping Pending</Link></li>
+                        <li><Link className="user-navItem" to={`/store/${storeParam}`}>Sales</Link></li>
+                        <li><Link className="user-navItem" to="/user/my-stores">Return</Link></li>
+                    </ul>
+                    :
+                    <ul>
+                        <li><Link className="user-navItem" to="/user">See Products</Link></li>
+                        <li><Link className="user-navItem" to="/user/create-store">Create Store</Link></li>
+                        {
+                            userHaveStores?
+                            <li><Link className="user-navItem" to="/user/my-stores">My Stores</Link></li>
+                            : <></>
+                        }
+                        <li><Link className="user-navItem" to="/user">Shipping Cart</Link></li>
+                        <li><Link className="user-navItem" to="/user/edit-user">Edit my Data</Link></li>
+                        <li><a className="user-navItem" href="#" onClick={exitSession}>Exit Session</a></li>
+                    </ul>
+                }
             </nav>
         </div>
     )

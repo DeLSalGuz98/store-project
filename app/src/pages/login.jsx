@@ -10,7 +10,7 @@ export function Login(){
     const navigate = useNavigate();
     useEffect(()=>{
         if(Boolean(localStorage.getItem('userAuth')) == true){
-            navigate('/store');
+            navigate('/user');
         }
     }, []);
     const handleChange = (e)=>{
