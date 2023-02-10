@@ -1,0 +1,38 @@
+.card{
+    font-size: 1rem;
+    width: fit-content;   
+    height: fit-content;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+    padding: 1em;
+    margin-left: 1.5em;
+    font-family: var(--font-two);
+}
+.card-name{
+    font-size: 1.2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: block;
+}
+.card-image{
+    width: 8em;
+    height: 8em;
+}
+.card-price{
+    display: block;
+}
+.card-btn{
+    width: 100%;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-top: .5em;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+.green{
+    background-color: var(--green);
+}
+.red{
+    background-color: var(--red);
+}

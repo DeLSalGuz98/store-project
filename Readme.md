@@ -63,11 +63,11 @@
 * [x] crear menu
 * [x] crear tienda
 * [x] visualizar todas dal tiendas del usuario
-* [ ] crear producto nuevo
-* [ ] visualizar todos los productos creados
+* [x] crear producto nuevo
+* [x] visualizar todos los productos creados
 * [ ] editar producto
 * [ ] borrar producto 
-* [ ] ver todos los productos que se venden
+* [x] ver todos los productos que se venden
 * [ ] ver detalles del producto
 * [ ] agregar al carrito de compra
 * [ ] ver carrito de compra
