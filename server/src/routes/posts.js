@@ -56,14 +56,16 @@ router.post('/new-product', async(req, res)=>{
         return res.sendStatus(401)
     }
     try {
-        const {name, description, price, date, stock, image, id_store} = req.body;
+        const {name, description, price, date, stock, id_store} = req.body;
+        const {originalname} = req.file
+        console.log(originalname);
         const [row] = await db.query(`
         INSERT INTO product(
             name, description, price, date, stock, image, id_store
         ) VALUES(?, ?, ?, ?, ?, ?, ?);
-        `,[name, description, price, date, stock, image, id_store]);
+        `,[name, description, price, date, stock, originalname, id_store]);
         res.status(201).json(row)
-    } catch (error) {
+        } catch (error) {
         console.log(error)
         return res.sendStatus(401)
     }

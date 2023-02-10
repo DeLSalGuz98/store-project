@@ -7,7 +7,8 @@ export const postDataToApi = async (url, body)=>{
             method: 'post',
             url: `${import.meta.env.VITE_API_POST}${url}`,
             headers: {
-                Authorization: localStorage.getItem('token')
+                Authorization: localStorage.getItem('token'),
+                enctype: 'multipart/form-data'
             },
             data: body
         });

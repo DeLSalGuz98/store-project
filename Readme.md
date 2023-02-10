@@ -85,3 +85,6 @@
 Foto de <a href="https://unsplash.com/@midashofstra?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Midas Hofstra</a> en <a href="https://unsplash.com/es/fotos/a6PMA5JEmWE?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 Foto de <a href="https://unsplash.com/@gabrielsalas?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Gabriel Salas</a> en <a href="https://unsplash.com/es/fotos/YnENabLdEKY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
+
+## Problemas - resolver
+* la imagen se remplaza si tienen el mismo nombre
