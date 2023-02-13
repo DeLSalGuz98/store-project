@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { getDataApi } from "../services/getApi";
 import { CardProduct } from "../components/cardProduct/cardProduct";
+import { Link } from "react-router-dom";
 export function SeeProducts(){
     const [allProducts, setAllProducts] = useState([]);
     useEffect(()=>{
@@ -23,7 +24,8 @@ export function SeeProducts(){
                         >
                             <span className="card-price" >Price: $ {p.price}</span>
                             <span className="card-price" >Store: {p.store}</span>
-                            <input className="card-btn green" type="button" value="See Details" />
+                            <Link className="card-btn green" to={`/user/detail-product/${p.id_product}`} value="See Details">See Detail</Link>
+
                         </CardProduct>
                     )
                 })

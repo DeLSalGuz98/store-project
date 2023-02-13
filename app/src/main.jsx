@@ -19,6 +19,8 @@ import { EditUser } from './pages/editUser';
 import { StorePage } from './pages/storePage';
 import { AllProducts } from './pages/allProducts';
 import { NewProduct } from './pages/newProduct';
+import { DetailProduct } from './pages/detailsProduct';
+import { ShippingCart } from './pages/shippingCart';
 
 const router = createBrowserRouter([
   {
@@ -57,6 +59,14 @@ const router = createBrowserRouter([
           {
             path: "/user/edit-user",
             element: <EditUser/>,
+          },
+          {
+            path: "/user/detail-product/:idProduct",
+            element: <DetailProduct/>,
+          },
+          {
+            path: "/user/shipping-cart",
+            element: <ShippingCart/>,
           },
         ]
       },
