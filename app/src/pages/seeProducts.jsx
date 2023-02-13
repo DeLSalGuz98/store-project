@@ -15,7 +15,6 @@ export function SeeProducts(){
         <div className="products-container">
             {
                 allProducts.map(p=>{
-                    console.log(p)
                     return(
                         <CardProduct
                             key={p.id_product}

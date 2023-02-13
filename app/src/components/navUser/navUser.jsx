@@ -79,7 +79,7 @@ export function NavUser(){
                             <li><Link className="user-navItem" to="/user/my-stores">My Stores</Link></li>
                             : <></>
                         }
-                        <li><Link className="user-navItem" to="/user">Shipping Cart</Link></li>
+                        <li><Link className="user-navItem" to="/user/shipping-cart">Shipping Cart</Link></li>
                         <li><Link className="user-navItem" to="/user/edit-user">Edit my Data</Link></li>
                         <li><a className="user-navItem" href="#" onClick={exitSession}>Exit Session</a></li>
                     </ul>

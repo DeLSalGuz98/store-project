@@ -1,13 +1,15 @@
 .card-large{
     font-size: 1rem;
     font-family: var(--font-two);
-    height: 4em;
-    padding: 0 2em;
+    width: 100%;
+    height: fit-content;
+    padding: 1em 2em;
     box-shadow: 0 0 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 2em 0;
 }
 .single-btn{
     font-size: 1em;

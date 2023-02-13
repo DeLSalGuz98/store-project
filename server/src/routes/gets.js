@@ -120,9 +120,9 @@ router.get('/shipping-cart', async function(req, res) {
         , product.id_store
     from order_buy
     join product on product.id = order_buy.id_product
-    where id_user = "2" and order_buy.status = "sin-comprar";
+    where id_user = ? and order_buy.status = "sin-comprar";
     `,[tokenData.id])
-    res.status(200).json(row)
+    res.status(200).json(row);
     } catch (error) {
         return res.sendStatus(401)
     }    
