@@ -66,8 +66,8 @@ export function NavUser(){
                     <ul>
                         <li><Link className="user-navItem" to={`/store/${storeParam}/new-product`}>Add New Product</Link></li>
                         <li><Link className="user-navItem" to={`/store/${storeParam}/all-products`}>All Products</Link></li>
-                        <li><Link className="user-navItem" to={`/store/${storeParam}`}>Shipping Pending</Link></li>
-                        <li><Link className="user-navItem" to={`/store/${storeParam}`}>Sales</Link></li>
+                        <li><Link className="user-navItem" to={`/store/${storeParam}/shipping-pending`}>Shipping Pending</Link></li>
+                        <li><Link className="user-navItem" to={`/store/${storeParam}/sales`}>Sales</Link></li>
                         <li><Link className="user-navItem" to="/user/my-stores">Return</Link></li>
                     </ul>
                     :

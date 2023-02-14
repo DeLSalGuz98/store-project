@@ -96,7 +96,7 @@ router.put('/send-product/:id_invoice', async(req, res)=>{
     try {
         const {id_invoice} = req.params;
         const {date} = req.body;
-        const [row] = await db.query(`
+        await db.query(`
             UPDATE invoice
             SET status = "pagado-enviado",
             date = ?

@@ -21,6 +21,8 @@ import { AllProducts } from './pages/allProducts';
 import { NewProduct } from './pages/newProduct';
 import { DetailProduct } from './pages/detailsProduct';
 import { ShippingCart } from './pages/shippingCart';
+import { ShippingPending } from './pages/shippingPending';
+import { Sales } from './pages/sales';
 
 const router = createBrowserRouter([
   {
@@ -81,6 +83,14 @@ const router = createBrowserRouter([
           {
             path: "/store/:idStore/new-product",
             element: <NewProduct/>,
+          },
+          {
+            path: "/store/:idStore/shipping-pending",
+            element: <ShippingPending/>,
+          },
+          {
+            path: "/store/:idStore/sales",
+            element: <Sales/>,
           },
         ]
       }

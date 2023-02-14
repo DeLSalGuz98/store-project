@@ -184,7 +184,7 @@ router.get('/shipping-pending/:id', async(req, res)=>{
             , user.address
             , invoice.date
             , order_buy.quantity
-            , invoice.id as invocie_id
+            , invoice.id as invoice_id
         from invoice
         join order_buy on order_buy.id = invoice.id_order_buy
         join product on product.id = order_buy.id_product
@@ -208,6 +208,7 @@ router.get('/sold-products/:id', async(req, res)=>{
             select product.name as product
                 , invoice.date 
                 , invoice.total_price
+                , invoice.id as invoice_id
             from invoice
             join order_buy on order_buy.id = invoice.id_order_buy
             join product on product.id = order_buy.id_product

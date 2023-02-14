@@ -12,11 +12,16 @@ export function AllProducts(){
         const res = await getDataApi(`/all-products/${idStore}`);
         setAllProducts(res)
     }
+    const editProduct = () =>{
+        alert('Lo siento, esta funcion aun no esta implementada')
+    }
+    const deleteProduct = ()=>{
+        alert('Lo siento. Las rutas para eliminar un producto aun no estan listas')
+    }
     return(
         <div className="products-container">
             {
                 allProducts.map(p=>{
-                    console.log(p)
                     return(
                         <CardProduct
                             key={p.id_product}
@@ -24,8 +29,8 @@ export function AllProducts(){
                             image={`${import.meta.env.VITE_API_IMAGE}${p.image}`}
                         >
                             <span className="card-price" >Price: ${p.price}</span>
-                            <input className="card-btn green" type="button" value="Edit" />
-                            <input className="card-btn red" type="button" value="Delete" />
+                            <input className="card-btn green" type="button" value="Edit" onClick={editProduct} />
+                            <input className="card-btn red" type="button" value="Delete" onClick={deleteProduct}/>
                         </CardProduct>
                     )
                 })

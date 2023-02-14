@@ -13,7 +13,9 @@
 }
 .formDetail{
     width: 50%;
-    padding-top: 2em;
+    padding: 2em 1em;
+    border-radius: 10px;
+    background-color: var(--white);
 }
 .titleDetail{
     font-size: 2em;

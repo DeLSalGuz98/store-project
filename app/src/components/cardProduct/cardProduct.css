@@ -7,6 +7,7 @@
     padding: 1em;
     margin-left: 1.5em;
     font-family: var(--font-two);
+    background-color: var(--white);
 }
 .card-name{
     font-size: 1.2em;
@@ -39,7 +40,7 @@
     background-color: var(--red);
 }
 .green:hover{
-    background-color: var(---dark-green);
+    background-color: var(--dark-green);
 }
 .red:hover{
     background-color: var(--dark-red);
